@@ -1,47 +1,18 @@
 <% include layout_top %>
 
-<div class="hero-unit">
-    <h1>欢迎来到 Microblog</h1>
-    <p>Microblog 这是一个基于 Node.js 的微博系統。</p>
-    <p>
-      <a class="btn btn-primary btn-large" href="/login">登陆</a>
-      <a class="btn btn-large" href="/reg">立即注册</a>
-    </p>
-</div>
+<% if(!user){ %>
+    <div class="hero-unit">
+        <h1>欢迎来到 Microblog</h1>
+        <p>Microblog 这是一个基于 Node.js 的微博系統。</p>
+        <p>
+          <a class="btn btn-primary btn-large" href="/login">登陆</a>
+          <a class="btn btn-large" href="/reg">立即注册</a>
+        </p>
+    </div>
+<% } else { %>
+    <% include say %>
+<% } %>
 
-<div class="row">
-    <div class="span4">
-        <h2>Carbo 说</h2>
-        <p>东风破早梅 向暖一枝开 冰雪无人见 喜从天上来</p>
-    </div>
-    <div class="span4">
-        <h2>BYVoid 说</h2>
-        <p>五百次回眸只为你经过
-           岁月的蹉跎让爱犯了错
-           即使化身石桥等你来走过
-           我的心事你会不会听我说
-           你的微笑是我永远的魔
-           你的承诺在我心中执着
-           即使在菩提下涅盘成佛
-           回首前尘又怕锦书难托
-           佛说多多多 一生情太多
-           爱恨来回拖 愁眉又紧锁
-           佛说过过过 一生快走过
-           为爱惹的祸 烧成一团火
-           佛说错错错 太多的过错
-           全部都怨我 就此忘了我
-           佛说莫莫莫 莫要再情多
-           让思念沉默 心莲一朵朵</p>
-    </div>
-    <div class="span4">
-        <h2>佛振 说</h2>
-        <p>佛说过过过 一生快走过
-           为爱惹的祸 烧成一团火
-           佛说错错错 太多的过错
-           全部都怨我 就此忘了我
-           佛说莫莫莫 莫要再情多
-           让思念沉默 心莲一朵朵</p>
-    </div>
-</div>
+<% include posts %>
 
 <% include layout_bottom %>

@@ -37,11 +37,6 @@ var User = require('../models/user.js');
 var Post = require('../models/post.js');
 
 module.exports = function(app){
-    app.get('/', function(req, res){
-        res.render('index', {
-            title: '首页'
-        });
-    });
 
     app.get('/reg', checkNotLogin);
     app.get('/reg', function(req, res){
@@ -150,6 +145,18 @@ module.exports = function(app){
                     title: user.name,
                     posts: posts,
                 });
+            });
+        });
+    });
+
+    app.get('/', function(req, res) {
+        Post.get(null, function(err, posts) {
+            if (err) {
+                posts = [];
+            }
+            res.render('index', {
+                title: '首页',
+                posts: posts,
             });
         });
     });
